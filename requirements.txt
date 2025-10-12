@@ -1,0 +1,17 @@
+# Core
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.4
+matplotlib>=3.8
+tqdm>=4.66
+
+# Models
+torch>=2.2
+torchvision>=0.17
+torchmetrics>=1.4
+opacus>=1.5
+
+# Extras
+imbalanced-learn>=0.12
+shap>=0.45
+pyyaml>=6.0.2

@@ -1,0 +1,38 @@
+# Default experiment configuration
+data:
+  url: "https://davidechicco.github.io/neuroblastoma_EHRs_data/datasets/GSE3960_cleaned_data.csv"
+  target_col: "<SET_THIS>"         # e.g., "label" or "class" — please set correctly
+  positive_label: 1                # set to the positive class value if not 1
+  drop_cols: []                    # e.g., ["patient_id"]
+
+preprocess:
+  test_size: 0.2
+  val_size: 0.2
+  random_state: 42
+  scale: true
+
+baselines:
+  logistic_regression: true
+  random_forest: true
+  mlp_sklearn: true
+
+augment:
+  enabled: true
+  n_synth: 500
+  epochs: 50
+  batch_size: 64
+  latent_dim: 32
+  lr: 1e-3
+
+privacy:
+  enabled: true
+  model: "mlp_torch"   # DP training supported for torch MLP
+  epochs: 25
+  batch_size: 64
+  lr: 1e-3
+  max_grad_norm: 1.0
+  noise_multiplier: 1.0
+
+calibration:
+  enabled: true
+  method: "isotonic"
